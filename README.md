@@ -38,4 +38,4 @@ DnsDeleteScriptArguments: DELETE {RecordName} {Token}
 (https://www.win-acme.com/reference/plugins/validation/dns/script)
 
 ## Runtime
-The script is going to warn you about any errors that might appear during the process, a feedback in json format from the cPanel dashboard will also be shown
+The script is going to warn you about any errors that might appear during the process, a feedback in json format from the cPanel dashboard will also be shown.
