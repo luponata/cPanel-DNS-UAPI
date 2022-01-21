@@ -12,7 +12,7 @@ DELETE FQDN TOKEN
 Example: ```./cpanel-dns-uapi.py ADD _acme-challenge.example.com DGyRejmCefe7v4NfDGDKfA```
 
 ## How to use
-On first run, the script will create an empty '.dns-env' file, you will need to complete it before you can continue:
+On first run, the script will create an empty **'.dns-env'** file, you will need to complete it before you can continue:
 ```
 # cPanel-DNS-UAPI configuration file
 
@@ -28,7 +28,7 @@ RECORD_TTL = 3600
 After that, you can use it manually: [./cpanel-dns.api.py ADD _acme-challenge.example.com $TOKEN] or with an automation script like\
 WIN-ACME: (https://www.win-acme.com)
 ```
-DnsCreateScript: C:\cpanel-dns-api.exe
+DnsCreateScript: C:\cpanel-dns-uapi.exe
 DnsCreateScriptArguments: ADD {RecordName} {Token}
 DnsDeleteScriptArguments: DELETE {RecordName} {Token}
 ```
