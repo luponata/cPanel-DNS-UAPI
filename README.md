@@ -14,7 +14,7 @@ Example: ```./cpanel-dns-uapi.py ADD _acme-challenge.example.com DGyRejmCefe7v4N
 ## How to use
 On first run, the script will create an empty '.dns-env' file, you will need to complete it before you can continue:
 ```
-# cpanel-dns-api configuration file
+# cPanel-DNS-UAPI configuration file
 
 CPANEL_DOMAIN = example.com
 CPANEL_PORT = 2083
