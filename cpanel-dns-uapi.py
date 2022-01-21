@@ -12,7 +12,7 @@ from urllib.parse import quote
 from os.path import realpath, dirname, join
 
 ENVCONTENT = '''
-# cpanel-dns-api configuration file
+# cPanel-DNS-UAPI configuration file
 
 CPANEL_DOMAIN = example.com
 CPANEL_PORT = 2083
