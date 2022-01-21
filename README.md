@@ -4,13 +4,13 @@ cPanel DNS UAPI for TXT records (ACME validation)
 This script leverages the functionality of cPanel UAPI (https://api.docs.cpanel.net/cpanel/introduction/) to allow users or other applications to create TXT records on a specified DNS Zone.
 
 
-# Arguments
+## Arguments
 ADD FQDN TOKEN\
 DELETE FQDN TOKEN
 
 Example: ./cpanel-dns-uapi.py ADD _acme-challenge.example.com DGyRejmCefe7v4NfDGDKfA
 
-# How to use
+## How to use
 You can use it manually: [./cpanel-dns.api.py ADD _acme-challenge.example.com $TOKEN] or with an automation script like WIN-ACME: (https://www.win-acme.com)
 
 DnsCreateScript: C:\cpanel-dns-api.exe\
