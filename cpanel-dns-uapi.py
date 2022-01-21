@@ -2,13 +2,14 @@
 APP_NAME='cPanel-DNS-UAPI'
 APP_VERSION='v21122'
 
-import base64, json, sys
+import json, sys
 from os import environ
 from pathlib import Path
 from requests import Session
 from tldextract import extract
 from dotenv import load_dotenv
 from urllib.parse import quote
+from base64 import b64encode, b64decode
 from os.path import realpath, dirname, join
 
 ENVCONTENT = '''
@@ -42,8 +43,8 @@ load_dotenv(envlocation)
 DASHBOARD = environ.get("CPANEL_DOMAIN")
 ZONE = environ.get("DNS_ZONE")
 PORT = environ.get('CPANEL_PORT')
-USERNAME = environ.get('CPANEL_USERNAME')
-PASSWORD = environ.get('CPANEL_PASSWORD')
+USERNAME = b64encode(environ.get('CPANEL_USERNAME').encode('utf-8'))
+PASSWORD = b64encode(environ.get('CPANEL_PASSWORD').encode('utf-8'))
 RECORD_TTL = environ.get('RECORD_TTL')
 
 class PanelToken:
@@ -82,8 +83,8 @@ def login(): # Perform login on cPanel dashboard
 		url = "https://{}:{}/login/?login_only=1".format(DASHBOARD, PORT)
 
 		data = {
-		"user" : USERNAME,
-		"pass" : PASSWORD
+		"user" : b64decode(USERNAME).decode('utf-8'),
+		"pass" : b64decode(PASSWORD).decode('utf-8')
 		}
 
 		req = s.post(url, headers=header.header, data=data)
@@ -105,7 +106,7 @@ def get_serial(): # Get serial of the ZONE
 		req = s.get(url, headers=header.header)
 
 		if not req.json()['errors']:
-			serial.update_serial(base64.b64decode(req.json()['data'][3]['data_b64'][2]).decode("utf8"))
+			serial.update_serial(b64decode(req.json()['data'][3]['data_b64'][2]).decode("utf8"))
 		else:
 			print('GET SERIAL ERROR')
 			print()
@@ -167,8 +168,8 @@ def parse_and_delete(RECORD, TOKEN): # Parse and delete given TXT record
 	for item in response['data']:
 		if 'record_type' in item:
 			if item['record_type'] == 'TXT':
-				record_found = base64.b64decode(item['dname_b64']).decode('utf-8')
-				token_found = base64.b64decode(item['data_b64'][0]).decode('utf-8')
+				record_found = b64decode(item['dname_b64']).decode('utf-8')
+				token_found = b64decode(item['data_b64'][0]).decode('utf-8')
 				if (extract(RECORD).subdomain in record_found) and (TOKEN in token_found):
 					return _del_record(item['line_index'])
 
@@ -189,8 +190,6 @@ if not sys.flags.interactive:
 		print()
 		print("Loaded cPanel Dashboard: {}".format(DASHBOARD))
 		print("Loaded Port: {}".format(PORT))
-		print("Loaded Username: {}".format(USERNAME))
-		print("Loaded Password: {} (Masked)".format(PASSWORD.translate("*"*256)))
 		print()
 		print("Loaded DNS Zone: {}".format(ZONE))
 		print("Loaded TTL: {}".format(RECORD_TTL))
