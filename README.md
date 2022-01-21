@@ -25,7 +25,8 @@ DNS_ZONE = example.com\
 RECORD_TTL = 3600
 ```
 
-After that, you can use it manually: [./cpanel-dns.api.py ADD _acme-challenge.example.com $TOKEN] or with an automation script like WIN-ACME: (https://www.win-acme.com)
+After that, you can use it manually: [./cpanel-dns.api.py ADD _acme-challenge.example.com $TOKEN] or with an automation script like\
+WIN-ACME: (https://www.win-acme.com)
 ```
 DnsCreateScript: C:\cpanel-dns-api.exe
 DnsCreateScriptArguments: ADD {RecordName} {Token}
