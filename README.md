@@ -8,7 +8,6 @@ This script leverages the functionality of cPanel UAPI (https://api.docs.cpanel.
 ADD FQDN TOKEN
 DELETE FQDN TOKEN
 ```
-
 #### Example:
 
 Python version: ```python3 cpanel-dns-uapi.py ADD _acme-challenge.example.com DGyRejmCefe7v4NfDGDKfA```\
