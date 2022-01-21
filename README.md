@@ -28,10 +28,14 @@ DNS_ZONE = example.com
 RECORD_TTL = 3600
 ```
 
-After that, you can use it manually or alternatively with an automation script like WIN-ACME: (https://www.win-acme.com)
+After that, you can use it manually or alternatively with an automation script like WIN-ACME:\
+(https://www.win-acme.com)
 ```
 DnsCreateScript: C:\cpanel-dns-uapi.exe
 DnsCreateScriptArguments: ADD {RecordName} {Token}
 DnsDeleteScriptArguments: DELETE {RecordName} {Token}
 ```
 (https://www.win-acme.com/reference/plugins/validation/dns/script)
+
+## Runtime
+The script is going to warn you about any errors that might appear during the process, a feedback in json format from the cPanel dashboard will also be shown
