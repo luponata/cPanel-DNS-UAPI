@@ -16,12 +16,12 @@ On first run, the script will create an empty '.dns-env' file, you will need to 
 ```
 # cpanel-dns-api configuration file
 
-CPANEL_DOMAIN = example.com\
-CPANEL_PORT = 2083\
-CPANEL_USERNAME = username\
+CPANEL_DOMAIN = example.com
+CPANEL_PORT = 2083
+CPANEL_USERNAME = username
 CPANEL_PASSWORD = password
 
-DNS_ZONE = example.com\
+DNS_ZONE = example.com
 RECORD_TTL = 3600
 ```
 
