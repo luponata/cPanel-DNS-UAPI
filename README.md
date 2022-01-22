@@ -5,8 +5,8 @@ This script leverages the functionality of cPanel UAPI (https://api.docs.cpanel.
 
 ## Arguments
 ```
-ADD FQDN TOKEN
-DELETE FQDN TOKEN
+ADD <FQDN> <TOKEN>
+DELETE <FQDN> <TOKEN>
 ```
 #### Example:
 
