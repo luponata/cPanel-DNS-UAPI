@@ -10,13 +10,13 @@ DELETE <FQDN> <TOKEN>
 ```
 #### Example:
 
-Python version: ```python3 cpanel-dns-uapi.py ADD _acme-challenge.example.com DGyRejmCefe7v4NfDGDKfA```\
-Executable version: ```.\cpanel-dns-uapi.exe ADD _acme-challenge.example.com DGyRejmCefe7v4NfDGDKfA```
+Python version: ```python3 cpanel-uapi-dns.py ADD _acme-challenge.example.com DGyRejmCefe7v4NfDGDKfA```\
+Executable version: ```.\cpanel-uapi-dns.exe ADD _acme-challenge.example.com DGyRejmCefe7v4NfDGDKfA```
 
 ## How to use
 On first run, the script will create an empty **'.dns-env'** file, you will need to complete it before you can continue:
 ```
-# cPanel-DNS-UAPI configuration file
+# cPanel-UAPI-DNS-client configuration file
 
 CPANEL_DOMAIN = example.com
 CPANEL_PORT = 2083
@@ -30,7 +30,7 @@ RECORD_TTL = 3600
 After that, you can use it manually or alternatively with an automation script like WIN-ACME:\
 (https://www.win-acme.com)
 ```
-DnsCreateScript: C:\cpanel-dns-uapi.exe
+DnsCreateScript: C:\cpanel-uapi-dns.exe
 DnsCreateScriptArguments: ADD {RecordName} {Token}
 DnsDeleteScriptArguments: DELETE {RecordName} {Token}
 ```
