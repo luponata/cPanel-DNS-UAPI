@@ -20,7 +20,7 @@ On first run, the script will create an empty **'.dns-env'** file, you will need
 ```
 # cPanel-UAPI-DNS-client configuration file
 
-CPANEL_DOMAIN = example.com
+CPANEL_DASHBOARD = example.com
 CPANEL_PORT = 2083
 CPANEL_USERNAME = username
 CPANEL_PASSWORD = password
