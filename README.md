@@ -1,5 +1,5 @@
-# cPanel-DNS-UAPI
-cPanel DNS UAPI for creating TXT records (ACME validation)
+#  cPanel-UAPI-DNS-client
+cPanel UAPI DNS client for creating TXT records (DNS validation)
 
 This script leverages the functionality of cPanel UAPI (https://api.docs.cpanel.net/cpanel/introduction/) to allow users or other applications to create TXT records on a specified DNS Zone.
 
