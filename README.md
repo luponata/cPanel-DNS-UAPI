@@ -8,10 +8,12 @@ This script leverages the functionality of cPanel UAPI (https://api.docs.cpanel.
 ADD <FQDN> <TOKEN>
 DELETE <FQDN> <TOKEN>
 ```
-#### Example:
+#### Examples:
+Python version:\
+```python3 cpanel-uapi-dns-client.py ADD _acme-challenge.example.com DGyRejmCefe7v4NfDGDKfA```
 
-Python version: ```python3 cpanel-uapi-dns-client.py ADD _acme-challenge.example.com DGyRejmCefe7v4NfDGDKfA```\
-Executable version: ```.\cpanel-uapi-dns-client.exe ADD _acme-challenge.example.com DGyRejmCefe7v4NfDGDKfA```
+Executable version:\
+```.\cpanel-uapi-dns-client.exe ADD _acme-challenge.example.com DGyRejmCefe7v4NfDGDKfA```
 
 ## How to use
 On first run, the script will create an empty **'.dns-env'** file, you will need to complete it before you can continue:
