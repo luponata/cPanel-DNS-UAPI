@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-APP_NAME='cPanel-DNS-UAPI'
-APP_VERSION='v21122'
+APP_NAME='cPanel-UAPI-DNS-client'
+APP_VERSION='v23122'
 
 import json, sys
 from os import environ
@@ -13,7 +13,7 @@ from base64 import b64encode, b64decode
 from os.path import realpath, dirname, join
 
 ENVCONTENT = '''
-# cPanel-DNS-UAPI configuration file
+# cPanel-UAPI-DNS-client configuration file
 
 CPANEL_DOMAIN = example.com
 CPANEL_PORT = 2083
