@@ -29,7 +29,7 @@ DNS_ZONE = example.com
 RECORD_TTL = 3600
 ```
 
-After that, you can use it manually or alternatively with an automation script like WIN-ACME:\
+After that, you can use it manually (as shown in the examples) or alternatively with an automation script like WIN-ACME:\
 (https://www.win-acme.com)
 ```
 DnsCreateScript: C:\cpanel-uapi-dns-client.exe
