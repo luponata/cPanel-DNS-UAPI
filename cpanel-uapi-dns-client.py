@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 APP_NAME='cPanel-UAPI-DNS-client'
-APP_VERSION='v23122'
+APP_VERSION='v22322'
 
 import json, sys
 from os import environ
@@ -15,7 +15,7 @@ from os.path import realpath, dirname, join
 ENVCONTENT = '''
 # cPanel-UAPI-DNS-client configuration file
 
-CPANEL_DOMAIN = example.com
+CPANEL_DASHBOARD = example.com
 CPANEL_PORT = 2083
 CPANEL_USERNAME = username
 CPANEL_PASSWORD = password
@@ -40,7 +40,7 @@ if not Path(envlocation).is_file():
 
 # Load env file
 load_dotenv(envlocation)
-DASHBOARD = environ.get("CPANEL_DOMAIN")
+DASHBOARD = environ.get("CPANEL_DASHBOARD")
 ZONE = environ.get("DNS_ZONE")
 PORT = environ.get('CPANEL_PORT')
 USERNAME = b64encode(environ.get('CPANEL_USERNAME').encode('utf-8'))
@@ -122,7 +122,6 @@ def add_record(RECORD, TOKEN): # Add a TXT record
 
 		data = '{{"dname":"{}.","ttl":{},"record_type":"TXT","data":["{}"]}}'.format(RECORD, RECORD_TTL, TOKEN)
 		record = 'zone={}&serial={}&add={}'.format(ZONE, serial.serial, quote(data))
-		global req
 		req = s.post(url, headers=header.header, data=record)
 		if not req.json()['errors']:
 			print('ADD WAS SUCCESSFUL')
@@ -196,8 +195,8 @@ if not sys.flags.interactive:
 		print('------------------')
 		print('MISSING ARGUMENTS:')
 		print()
-		print('ADD FQDN TOKEN')
-		print('DELETE FQDN TOKEN')
+		print('ADD <FQDN> <TOKEN>')
+		print('DELETE <FQDN> <TOKEN>')
 		print()
 		print('EXAMPLE: ADD _acme-challenge.example.com DGyRejmCefe7v4NfDGDKfA')
 	elif sys.argv[1] == 'ADD': # Add record
